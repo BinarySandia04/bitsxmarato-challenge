@@ -1,25 +1,5 @@
 [
     {
-        "question":"Quien es mas negro?",
-        "answer_left":"El Pol",
-        "answer_right":"El negro ese que me esta mirando mal (bien)",
-        "image": "latest.png",
-        "consequences_left": {
-            "health":-100,
-            "mental_health":-100,
-            "hornyness":-100,
-            "satisfaction":-100
-        }
-        ,
-        "consequences_right": {
-            "health":-100,
-            "mental_health":-100,
-            "hornyness":-100,
-            "satisfaction":-100
-        }
-        
-    },
-    {
         "question":"Tu pareja de dice de hacerlo sin condón",
         "answer_left":"Hacerlo",
         "answer_right":"Mejor no, puede ser peligroso",
@@ -84,39 +64,55 @@
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":-10,
-                "satisfaction":10
+                "mental_health":-10,
+                "hornyness":-5,
+                "satisfaction":-10
             }
         ,
         "consequences_right":
             {
-                "health":50,
                 "mental_health":-30,
-                "hornyness":10,
+                "hornyness":-10,
                 "satisfaction":10
             }
         
     },
 
     {
-        "question":"Experimentar cosas nuevas: cosa que puedas probar ns",
+        "question":"Experimentar cosas nuevas: usar un vibrador",
         "answer_left":"Probar",
         "answer_right":"Mejor no",
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
+                "mental_health":2,
+                "hornyness":-10,
                 "satisfaction":10
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
+                "health":5,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Experimentar cosas nuevas: sexo anal",
+        "answer_left":"Probar",
+        "answer_right":"Mejor no",
+        "image": "latest.png",
+        "consequences_left":
+            {
+                "mental_health":2,
+                "hornyness":-10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":5,
                 "hornyness":10,
                 "satisfaction":10
             }
@@ -124,91 +120,75 @@
     },
     {
         "question":"Quieres salir de fiesta esta noche?",
-        "answer_left":"Aceptar",
+        "answer_left":"Aceptar(costará 20€)",
         "answer_right":"Quedarse en casa",
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
+                "mental_health":5,
                 "hornyness":10,
-                "satisfaction":10
+                "satisfaction":10,
+                "coste":20,
+                "health":-10
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "mental_health":-5,
+                "satisfaction":-10
             }
         
     },
     {
-        "question":"Medicarte para el SIDA",
-        "answer_left":"Aceptar",
-        "answer_right":"Soy pobre",
+        "question":"Tiens la oportunidad de ir al medico para mantener tu salud, pero cuesta 20€",
+        "answer_left":"De acuerdo, pagaré",
+        "answer_right":"No tengo dinero",
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "health":15,
+                "coste":20
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "health":-5
             }
         
     },
     {
-        "question":"Te despiertas sin ganas de follar",
+        "question":"Te despiertas sin ganas de tener sexo",
         "answer_left":"Aceptar",
         "answer_right":"Aceptar",
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10,
-                "sexo":0,
-                "sin_ganas":1
+                "health": -10,
+                "hornyness":-10
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "health": -10,
+                "hornyness":10
             }
         
     },
     {
-        "question":"Hoy te has despertado caliente, todas las acciones sexuales te haran mas feliz",
-        "answer_left":"ok",
-        "answer_right":"ok",
+        "question":"Hoy te has despertado caliente",
+        "answer_left":"Ok",
+        "answer_right":"Ok",
         "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "mental_health":-5,
+                "hornyness":10
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "mental_health":-5,
+                "hornyness":10
             }
         
     },

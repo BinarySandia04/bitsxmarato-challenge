@@ -19,26 +19,27 @@ class Player {
     AddStats(stats) {
         let normal=true;
         //modificadores
+        if('coste' in stats){
+            this.money-=stats.coste;
+        }
         if('sexo' in stats){
             //Cosa que te de chance de que pase un embarazo??? happens ns
             if(this.singanas){
-                normal=false;
-                this.satisfaction-=stats.satisfaction;
-                this.mental_health-=stats.mental_health;
+                
             }
             if(this.disfuncion){
-                //aqui un random o algo y si da que follas mal pues happens ns
+                //aqui un random o algo y puedes fallar en el sexo
             }
 
         }
-        if('porno' in stats){
-            //pajero
-        }
         if(normal){
-        this.health += stats.health;
-        this.mental_health += stats.mental_health;
-        this.hornyness += stats.hornyness;
-        this.satisfaction += stats.satisfaction;
+            if(stats.health) {
+                this.health += stats.health;
+                if (this.health > 100) this.health = 100;
+            }
+            if(stats.mental_health) this.mental_health += stats.mental_health;
+            if(stats.hornyness) this.hornyness += stats.hornyness;
+            if(stats.satisfaction) this.satisfaction += stats.satisfaction;
         }
     }
 }

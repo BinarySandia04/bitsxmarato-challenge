@@ -125,11 +125,6 @@ function CardClick(event){
   var card = document.getElementById("card");
   var answerLeft  = document.getElementById("answer-left");
   var answerRight = document.getElementById("answer-right");
-  
-  // A
-  if (player.health == 100 || player.health == 0 || player.mental_health == 100 || player.mental_health == 0 || player.hornyness == 100 || player.hornyness == 0 || player.satisfaction == 100 || player.satisfaction == 0) {
-    // router.push('/end');
-  }
 
   if (cardDirection != undefined) {
     player.money+=3;
@@ -186,6 +181,32 @@ function CardClick(event){
         }, 400);
       }, 200);
     }
+
+    console.log(player);
+
+    var message = undefined;
+    if(player.health <= 0) {
+      message = "Després de no seguir bons consells sobre sexualitat, has agafat alguna ETS";
+    }
+    if(player.mental_health <= 0 ){
+      message = "Has desenvolupat depressió"
+    }
+    if(player.hornyness <= 0){
+      message = "La teva vida sexual s'ha apagat";
+    }
+    if(player.hornyness >= 100){
+      message = "Has estat massa temps sense desfogarte... estas molt frustrat";
+    }
+    if(player.satisfaction <= 0){
+      message = "La teva vida sexual ha esdevingut nula";
+    }
+    if(player.satisfaction >= 100){
+      message = "Estás esgotat...";
+    }
+    if(message){
+      window.localStorage.setItem("finalMessage", message);
+    }
+
     ChangeViewStats();
     PickRandomCard();
   }
