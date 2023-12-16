@@ -2,12 +2,8 @@
 
 import { RouterLink, RouterView } from 'vue-router'
 
-import { GetUser, UserStatus, LoadUser } from '@/services/User.js'
-import { IsAdmin } from './services/User'
-
 console.clear();
 console.log("%cLoaded!!!", "color: #22ff22; font-size: 24px");
-LoadUser();
 
 </script>
 
