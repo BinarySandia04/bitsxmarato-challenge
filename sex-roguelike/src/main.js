@@ -26,6 +26,7 @@ import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';
 import 'prismjs/components/prism-ruby';
 import 'prismjs/components/prism-bash';
+import Player from './services/Player'
 
 VueMarkdownEditor.lang.use('es-Es', esEs);
 VueMarkdownEditor.use(vuepressTheme, { Prism }); 
@@ -34,6 +35,8 @@ VueMarkdownEditor.use(createKatexPlugin());
 const app = createApp(App).use(VueMarkdownEditor);
 
 app.config.globalProperties.emitter = emitter;
+
+window.Player = new Player();
 
 app.use(router)
 

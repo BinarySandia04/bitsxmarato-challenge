@@ -5,6 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 console.clear();
 console.log("%cLoaded!!!", "color: #22ff22; font-size: 24px");
 
+
 </script>
 
 <template>

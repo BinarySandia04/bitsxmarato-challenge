@@ -1,0 +1,192 @@
+[
+    {
+        "question":"Quien es mas negro?",
+        "answer_left":"El Aran",
+        "answer_right":"El Aran",
+        "consequences_left":
+            {
+                "health":-100,
+                "mental_health":-100,
+                "hornyness":-100,
+                "satisfaction":-100
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Tu pareja de dice de hacerlo a pelo",
+        "answer_left":"Hacerlo",
+        "answer_right":"Mejor no, puede ser peligroso",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Tienes la opcion de ir al psicologo para mantener tu salud mental estable, pero tiene un coste economico",
+        "answer_left":"Aceptar",
+        "answer_right":"Rechazar",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Te apetece satisfacerte, pero no sabes si ver porno o no",
+        "answer_left":"Hacerlo",
+        "answer_right":"Nah",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Estas con tu pareja y quiere realizar practicas que no te atraen pero suelen ser tipicas en la pronografia",
+        "answer_left":"Aceptar",
+        "answer_right":"Hablar sobre el tema con la persona",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Experimentar cosas nuevas: cosa que puedas probar ns",
+        "answer_left":"Probar",
+        "answer_right":"Mejor no",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Quieres salir de fiesta esta noche?",
+        "answer_left":"Aceptar",
+        "answer_right":"Quedarse en casa",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Medicarte para el SIDA",
+        "answer_left":"Aceptar",
+        "answer_right":"Soy pobre",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Tener Sexo",
+        "answer_left":"Aceptar",
+        "answer_right":"Rechazar",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10,
+                "sexo":1
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    }
+]

@@ -2,11 +2,17 @@
 import FormSlot from '@/components/slots/FormSlot.vue'
 import CenteredSlot from '@/components/slots/CenteredSlot.vue'
 import { useRouter } from 'vue-router'
+import Player from '@/services/Player.js'
+import {createApp} from 'vue'
 
 const router = useRouter();
 
-function canviarPlaceholder() {
-  document.getElementById("input-nom").placeholder = "Que sepas que eres un negro";
+function Jugar() {
+  var name = document.getElementById('input-nom').value;
+
+  window.Player.name = name;
+
+  console.log(window.Player);
 
   router.push("/game");
 }
@@ -26,7 +32,7 @@ function canviarPlaceholder() {
         <input id="input-nom" type="text" placeholder="Introdueix el teu nom" required>
         <i class='bx bxs-user'></i>
       </div>
-      <button v-on:click.prevent="canviarPlaceholder()" type="submit" class="play-button">Jugar</button>
+      <button v-on:click.prevent="Jugar()" type="submit" class="play-button">Jugar</button>
     </div>
 
     </FormSlot>

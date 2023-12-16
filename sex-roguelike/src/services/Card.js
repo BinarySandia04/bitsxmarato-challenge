@@ -1,11 +1,11 @@
 class Card {
 
-    constructor(question, answer_left, answer_right, consequences_left, consequences_right) {
-        this.question = question;
-        this.answers_left = answers_left;
-        this.answers_right = answer_right;
-        this.consequences_left = consequences_left;
-        this.consequences_right = consequences_right;
+    constructor(card) {
+        this.question = card.question;
+        this.answer_left = card.answer_left;
+        this.answer_right = card.answer_right;
+        this.consequences_left = card.consequences_left;
+        this.consequences_right = card.consequences_right;
     }
 
     getConsequenceAnswer(i) {
@@ -13,3 +13,5 @@ class Card {
     }
 
 }
+
+export default Card;
