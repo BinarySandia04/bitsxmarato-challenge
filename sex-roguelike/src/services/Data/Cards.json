@@ -1,8 +1,8 @@
 [
     {
         "question":"Quien es mas negro?",
-        "answer_left":"El Aran",
-        "answer_right":"El Aran",
+        "answer_left":"El Pol",
+        "answer_right":"El negro ese que me esta mirando mal (bien)",
         "consequences_left":
             {
                 "health":-100,

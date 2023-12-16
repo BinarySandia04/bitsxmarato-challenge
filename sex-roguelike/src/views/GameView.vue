@@ -22,9 +22,18 @@ console.log("Negro de mierdaaa");
 
 const question_text = ref("");
 
+const answer_left_text = ref("");
+const answer_right_text = ref("");
+
+const display_answer_left_text = ref("");
+const display_answer_right_text = ref("");
+
 onMounted(() => {
   ChangeViewStats();
   PickRandomCard();
+
+  display_answer_left_text.value = currentCard.answer_left;
+  display_answer_right_text.value = currentCard.answer_right;
 })
 
 function PickRandomCard() {
@@ -32,11 +41,16 @@ function PickRandomCard() {
   console.log(cardPosition);
   console.log(cardsData[cardPosition]);
   currentCard = new Card(cardsData[cardPosition]);
-  question_text.value = cardsData[cardPosition].question;
+  question_text.value = currentCard.question;
+  answer_left_text.value = currentCard.answer_left;
+  answer_right_text.value = currentCard.answer_right;
 }
 
 function CardHover(e) {
   var card = document.getElementById("card");
+
+  var answerLeft  = document.getElementById("answer-left");
+  var answerRight = document.getElementById("answer-right");
 
   var rect = e.target.getBoundingClientRect();
   var x = e.clientX - rect.left;
@@ -44,40 +58,106 @@ function CardHover(e) {
 
   if(x < cardLength / 3){
     if(!card.classList.contains("card-left")){
-      if(card.classList.contains("card-right")){
-        card.classList.remove("card-right");
-      }
+      card.classList.remove("card-right");
       card.classList.add("card-left");  
+
+
       cardDirection = "left";
     }
   } else if(x > cardLength / 3 * 2) {
-    if(!card.classList.contains("card-right")){
-      if(card.classList.contains("card-left")){
-        card.classList.remove("card-left");
-      }
+      card.classList.remove("card-left");
       card.classList.add("card-right");
       cardDirection = "right";
-    }
   } else {
-    if(card.classList.contains("card-left")){
-      card.classList.remove("card-left");
-    }
-    if(card.classList.contains("card-right")){
-      card.classList.remove("card-right");
-    }
+    card.classList.remove("card-left");
+    card.classList.remove("card-right");
+    
+
     cardDirection = undefined;
+    answerLeft.classList.remove("shown");
+    answerRight.classList.remove("shown");
   }
+
+  if(!cardDirection){
+    answerLeft.classList.remove("shown");
+    answerRight.classList.remove("shown");
+  } else if(cardDirection == "right"){
+    answerRight.classList.add("shown");
+  } else {
+    answerLeft.classList.add("shown");
+  }
+
+  console.log("dir: " + cardDirection)
 };
 
+function CardLeave(e) {
+  var card = document.getElementById("card");
+  var answerLeft  = document.getElementById("answer-left");
+  var answerRight = document.getElementById("answer-right");
+  
+  cardDirection = undefined;
+  console.log("dir: " + cardDirection);
+
+
+  card.classList.remove("card-right");
+  card.classList.remove("card-left");
+    answerLeft.classList.remove("shown");
+    answerRight.classList.remove("shown");
+}
+
 function CardClick(event){
+  var card = document.getElementById("card");
+  var answerLeft  = document.getElementById("answer-left");
+  var answerRight = document.getElementById("answer-right");
+  
   console.log("Las consequencias:");
   console.log(currentCard.consequences_left);
   if (cardDirection != undefined) {
+    card.style.transitionDuration = "0.2s";
     if (cardDirection == "left") {
       player.AddStats(currentCard.consequences_left);
+      card.style.transform = "translateX(-30vw)";
+      card.style.opacity = 0;
+
+      answerRight.style.opacity = 0;
+      answerLeft.style.opacity = 0;
+
+      setTimeout(() => {
+        card.style.transform = "translateY(-10vw)";
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transform = "";
+
+          answerRight.style.removeProperty('opacity');
+          answerLeft.style.removeProperty('opacity');
+
+          display_answer_left_text.value = currentCard.answer_left;
+          display_answer_right_text.value = currentCard.answer_right;
+        }, 400);
+      }, 200);
     }
     else {
       player.AddStats(currentCard.consequences_right);
+
+      card.style.transform = "translateX(30vw)";
+      card.style.opacity = 0;
+
+      answerRight.style.opacity = 0;
+      answerLeft.style.opacity = 0;
+
+      setTimeout(() => {
+        card.style.transform = "translateY(-10vw)";
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transform = "";
+
+          answerRight.style.removeProperty('opacity');
+          answerLeft.style.removeProperty('opacity');
+          
+          display_answer_left_text.value = currentCard.answer_left;
+          display_answer_right_text.value = currentCard.answer_right;
+        }, 400);
+      }, 200);
     }
     ChangeViewStats();
     PickRandomCard();
@@ -114,22 +194,10 @@ function UpdateIconStatus(attribute_name, value){
     blue: 0
   });
 
-
   element.style.setProperty("--background-image", "linear-gradient(0deg, " + color + " 0%, " + color + " " + parseInt(value * 100) + 
     "%, #1c1c1c " + (parseInt(value * 100) + 0.01) + "%, #1c1c1c 100%)");
-};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+}
+
 function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
     var color1 = rgbColor1;
     var color2 = rgbColor2;
@@ -163,6 +231,8 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
 </script>
 
 <template>
+  <div class="answer answer-left" id="answer-left">{{ display_answer_left_text }}</div>
+  <div class="answer answer-right" id="answer-right">{{ display_answer_right_text }}</div>
   <div class="ui-container">
     <div class="icon-container">
       <div class="icon" id="icon-health"></div>
@@ -177,16 +247,14 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
     </div>
 
     <div class="card-container">
-      <div class="card" id="card" v-on:mousemove="CardHover" v-on:click.prevent="CardClick">
+      <div class="card" id="card" v-on:mousemove="CardHover" v-on:click.prevent="CardClick" v-on:mouseleave="CardLeave">
         <div class="card-image-container">
           <img class="card-image" :src="`../images/${currentCardImage.toLowerCase()}.png`">
+
         </div>
       </div>
     </div>
   </div>
-
-
-  <div class="background-card-1"></div>
 </template>
 
 
@@ -198,21 +266,31 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
   src: url('@/assets/fonts/rpgawesome-webfont.woff');
 }
 
-.background-card-1 {
-  height: 60vh;
-  width: calc(60vh / 1.618);
-
-  background-color: #5c5c5c;
-  border-radius: 25px;
-  transition: 0.2s;
-
-  display: flex;
-  flex-direction: column;
-
-  z-index: 2;
-  top: 25.45vh;
-
+.answer {
   position: absolute;
+  font-size: 32px;
+  text-align: center;
+  z-index: 9;
+  background-color: var(--color-background-softest);
+  border-radius: 20px;
+  padding: 20px;
+
+  opacity: 0;
+  transition: opacity .3s;
+  word-wrap: break-word;
+  width: 18vw;
+}
+
+.answer-left {
+  margin-right: 60vw;
+}
+
+.answer-right {
+  margin-left: 60vw;
+}
+
+.shown {
+  opacity: 1;
 }
 
 .question-text {
@@ -234,6 +312,7 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
   width: 100%;
 
   justify-content: center;
+
 }
 
 .card {
