@@ -2,6 +2,28 @@
 import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 
 
+function CardHover(e) {
+  var card = document.getElementById("card");
+  var rect = e.target.getBoundingClientRect();
+  var x = e.clientX - rect.left;
+
+  if(x < 100){
+    if(!card.classList.contains("card-left")){
+      if(card.classList.contains("card-right")) card.classList.remove("card-right");
+      card.classList.add("card-left");
+    }
+  } else if(x > 200) {
+    if(!card.classList.contains("card-right")){
+      if(card.classList.contains("card-left")) card.classList.remove("card-left");
+      card.classList.add("card-right");
+    }
+  } else {
+    if(card.classList.contains("card-left")) card.classList.remove("card-left");
+    if(card.classList.contains("card-right")) card.classList.remove("card-right");
+  }
+
+  console.log("x: " + x);
+};
 
 </script>
 
@@ -14,9 +36,14 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
       <div class="icon" id="icon-satisfaction"></div>
     </div>
 
+    
+    <div class="question-text">
+      Hola
+    </div>
+    
     <div class="card-container">
-      <div class="card">
-
+      <div class="card" id="card" v-on:mousemove="CardHover">
+          Hola!!
       </div>
     </div>
   </div>
@@ -32,6 +59,7 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 }
 
 .card-container {
+
   display: flex;
   width: 100%;
 
@@ -45,13 +73,17 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 
   background-color: var(--color-background-softest);
   border-radius: 25px;
-  cursor: none;
   transition: 0.2s;
 }
 
-.card:hover {
+.card-left:hover {
   margin-right: 50px;
-  transform: rotate(-3deg);
+  transform: rotate(-4deg);
+}
+
+.card-right:hover {
+  margin-left: 50px;
+  transform: rotate(4deg);
 }
 
 .icon-container {
@@ -60,7 +92,8 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
   align-items: center;
   margin-left: 20px;
   margin-right: 20px;
-  
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .test::after {
