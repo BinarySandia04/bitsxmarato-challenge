@@ -34,7 +34,7 @@ function canviarPlaceholder() {
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
 
 .play-button {
   width: 100%;

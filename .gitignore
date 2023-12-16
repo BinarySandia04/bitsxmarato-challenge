@@ -1,5 +1,5 @@
 .DS_Store
-/node_modules/
+sex-roguelike/node_modules/
 /dist/
 
 # local env files

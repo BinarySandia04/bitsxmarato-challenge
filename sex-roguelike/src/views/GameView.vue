@@ -8,13 +8,25 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 <template>
   <div class="ui-container">
     <div class="icon-container">
-      
+      <div class="test"></div>
     </div>
   </div>
 </template>
 
 
-<style>
+<style lang="scss">
+@font-face {
+  font-family: RPGAwesome;
+  src: url('@/assets/fonts/rpgawesome-webfont.woff');
+}
+
+.test::after {
+  font-family: 'RPGAwesome';
+  content: '\eade';
+  width: 25px;
+  height: 25px;
+}
+
 .ui-container {
   background-color: var(--color-background-soft);
   height: 100vh;
