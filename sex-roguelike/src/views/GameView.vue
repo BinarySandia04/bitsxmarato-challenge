@@ -45,6 +45,13 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 
   background-color: var(--color-background-softest);
   border-radius: 25px;
+  cursor: none;
+  transition: 0.2s;
+}
+
+.card:hover {
+  margin-right: 50px;
+  transform: rotate(-3deg);
 }
 
 .icon-container {
