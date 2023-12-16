@@ -32,7 +32,6 @@ Experimentar cosas nuevas {
 Lista de cosas poco comunes y pues tienees un % de que te guste o te baje stats ns
 }
 Salir de fiesta()
-Tu pareja te dice de tener sexo sin proteccion(chance de pillar sida again)
 Cura del sida
 
 
