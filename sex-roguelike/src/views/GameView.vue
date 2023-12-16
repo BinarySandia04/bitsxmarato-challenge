@@ -1,18 +1,23 @@
 <script setup>
 import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 
+var cardLength = undefined;
 
 function CardHover(e) {
   var card = document.getElementById("card");
   var rect = e.target.getBoundingClientRect();
   var x = e.clientX - rect.left;
 
-  if(x < 100){
+  console.log(rect.right - rect.left);
+
+  if(cardLength === undefined) cardLength = Math.abs(rect.left - rect.right);
+
+  if(x < cardLength / 3){
     if(!card.classList.contains("card-left")){
       if(card.classList.contains("card-right")) card.classList.remove("card-right");
       card.classList.add("card-left");
     }
-  } else if(x > 200) {
+  } else if(x > cardLength / 3 * 2) {
     if(!card.classList.contains("card-right")){
       if(card.classList.contains("card-left")) card.classList.remove("card-left");
       card.classList.add("card-right");
@@ -40,7 +45,7 @@ function CardHover(e) {
     <div class="question-text">
       Hola
     </div>
-    
+
     <div class="card-container">
       <div class="card" id="card" v-on:mousemove="CardHover">
           Hola!!
@@ -68,8 +73,9 @@ function CardHover(e) {
 
 .card {
   margin-top: 100px;
-  width: 400px;
-  height: 647px;
+
+  height: 60vh;
+  width: calc(60vh / 1.618);
 
   background-color: var(--color-background-softest);
   border-radius: 25px;
