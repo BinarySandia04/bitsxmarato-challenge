@@ -8,10 +8,16 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 <template>
   <div class="ui-container">
     <div class="icon-container">
+      <div class="icon" id="icon-health"></div>
       <div class="icon" id="icon-mentalhealth"></div>
-      <div class="icon" id="icon-fire"></div>
+      <div class="icon" id="icon-hornyness"></div>
       <div class="icon" id="icon-satisfaction"></div>
-      <div class="icon" id="icon-cash"></div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +29,22 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 @font-face {
   font-family: RPGAwesome;
   src: url('@/assets/fonts/rpgawesome-webfont.woff');
+}
+
+.card-container {
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+}
+
+.card {
+  margin-top: 100px;
+  width: 400px;
+  height: 647px;
+
+  background-color: var(--color-background-softest);
+  border-radius: 25px;
 }
 
 .icon-container {
@@ -39,9 +61,11 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
   height: 25px;
 }
 
+
+
 .icon {
-  &#icon-mentalhealth::after {
-    content: $ra-var-icon-acid;
+  &#icon-health::after {
+    content: $ra-var-icon-health;
     background-image: linear-gradient(45deg, #f3ec78, #af4261);
 
     -webkit-background-clip: text;
@@ -49,15 +73,27 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
   }
-  &#icon-fire::after {
+
+  &#icon-mentalhealth::after {
+    content: $ra-var-icon-light-bulb;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  }
+
+  &#icon-hornyness::after {
     content: $ra-var-icon-fire;
     background-image: linear-gradient(45deg, #f3ec78, #af4261);
-
+    
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
   }
+
   &#icon-satisfaction::after {
     content: $ra-var-icon-acid;
     background-image: linear-gradient(45deg, #f3ec78, #af4261);
@@ -67,6 +103,7 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
   }
+
   &#icon-cash::after {
     font-family:
     Inter,
@@ -101,7 +138,7 @@ import DocumentSlot from '@/components/slots/DocumentSlot.vue'
 .ui-container {
   background-color: var(--color-background-soft);
   height: 100vh;
-  min-width: 700px;
+  min-width: 900px;
 }
 
 .icon-container {

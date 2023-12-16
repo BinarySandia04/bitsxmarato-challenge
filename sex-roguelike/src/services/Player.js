@@ -5,6 +5,7 @@ class Player {
     mental_health = 50
     hornyness = 50
     satisfaction = 50
+    
     money = 50
 
 }
