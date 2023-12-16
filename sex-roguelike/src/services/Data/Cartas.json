@@ -1,0 +1,25 @@
+{
+    "CartaNegra":[
+        {
+            "question":"Quien es mas negro?",
+            "answer_left":"El Aran",
+            "answer_right":"El Aran",
+            "consequences_left":[
+                {
+                    "health":50,
+                    "mental_health":-30,
+                    "hornyness":10,
+                    "satisfaction":10
+                }
+            ],
+            "consequences_right":[
+                {
+                    "health":50,
+                    "mental_health":-30,
+                    "hornyness":10,
+                    "satisfaction":10
+                }
+            ]
+        }
+    ]
+}
