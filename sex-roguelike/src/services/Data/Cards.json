@@ -96,8 +96,7 @@
         "consequences_right":
             {
                 "health":5,
-                "hornyness":10,
-                "satisfaction":10
+                "hornyness":10
             }
         
     },
@@ -116,8 +115,7 @@
         "consequences_right":
             {
                 "health":5,
-                "hornyness":10,
-                "satisfaction":10
+                "hornyness":10
             }
         
     },

@@ -15,10 +15,27 @@ onMounted(() => {
 
 function Jugar() {
   var name = document.getElementById('input-nom').value;
+  ResetStats();
 
   window.Player.name = name;
 
   router.push("/game");
+}
+
+function ResetStats() {
+    var player = window.Player;
+    player.health = 50
+    player.mental_health = 50
+    player.hornyness = 50
+    player.satisfaction = 50
+    player.money = 50
+    
+    player.ganas=false; // de follar
+    player.sida=false; //vih
+    player.disfuncion=false; //erectil
+
+    player.age = 12;
+    player.dying_age = parseInt(Math.random() * 81 + 19);
 }
 
 </script>
