@@ -37,6 +37,10 @@
   --c-gradient-col-1: #034159;
   --c-gradient-col-2: #02735E;
   --c-gradient-col-3: #0CF25D;
+
+  --c-gradient-col-red-1: #590303;
+  --c-gradient-col-red-2: #730202;
+  --c-gradient-col-red-3: #f20c0c;
 }
 
 /* semantic color variables for this project */

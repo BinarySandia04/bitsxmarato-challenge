@@ -22,7 +22,7 @@ function Jugar() {
 <template>
   <CenteredSlot>
     <FormSlot>
-      <h1 class="centered-title">Sex roguelike</h1>
+      <h1 class="centered-title">Risk of Sex 2</h1>
       
       <div class="wrapper">
       <h1>Vols jugar?</h1>
@@ -61,10 +61,11 @@ function Jugar() {
 
 .centered-title {
   margin-top: 30px;
-  justify-content: left;
+  justify-content: center;
   padding-bottom: 30px;
   
-  width: 400px;
+  width: 100%;
+  text-align: center;
   background: linear-gradient(90deg, var(--c-gradient-col-1) 0%, var(--c-gradient-col-2) 21%, var(--c-gradient-col-3) 50%, var(--c-gradient-col-2) 76%, var(--c-gradient-col-1) 100%);
 
   animation: gradient 30s linear infinite;

@@ -182,8 +182,6 @@ function CardClick(event){
       }, 200);
     }
 
-    console.log(player);
-
     var message = undefined;
     if(player.health <= 0) {
       message = "Després de no seguir bons consells sobre sexualitat, has agafat alguna ETS";
@@ -203,8 +201,14 @@ function CardClick(event){
     if(player.satisfaction >= 100){
       message = "Estás esgotat...";
     }
+
+    if(player.money <= 0){
+      message = "T'has quedat sense diners."
+    }
+
     if(message){
       window.localStorage.setItem("finalMessage", message);
+      router.push("/end");
     }
 
     ChangeViewStats();
@@ -305,15 +309,6 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
     <div class="footer-info">
       <div class="footer-container player-info">
         <div class="player-name"><b>{{ player.name }}</b><br>Diners: {{ money_quantity }}€</div>
-      </div>
-      <div class="footer-container buffs-info">
-        Condicions:
-        <ul id="condition-list">
-          <li>Negro</li>
-          <li>Negro</li>
-          <li>Negro</li>
-          <li>Negro</li>
-        </ul>
       </div>
     </div>
   </div>

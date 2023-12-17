@@ -8,51 +8,52 @@
             {
                 "health":-15,
                 "hornyness":-20,
-                "satisfaction":20
+                "satisfaction":15
             }
         ,
         "consequences_right":
             {
-                "hornyness":10,
-                "satisfaction":-5
+                "health":5,
+                "hornyness":-10,
+                "satisfaction":5
             }
         
     },
 
     {
         "question":"Tienes la opcion de ir al psicologo para mantener tu salud mental estable, pero tiene un coste economico",
-        "answer_left":"De acuerdo iré al psicólogo",
+        "answer_left":"De acuerdo iré al psicólogo (20€)",
         "answer_right":"No tengo tanto dinero",
         "image": "latest.png",
         "consequences_left":
             {
                 "mental_health":30,
-                "cost":30
+                "cost":20
             }
         ,
         "consequences_right":
             {
-                "mental_health":-15
+                "mental_health":-5
             }
         
     },
     {
         "question":"Te apetece satisfacerte, pero no sabes si ver porno o no",
         "answer_left":"Hacerlo",
-        "answer_right":"Nah",
+        "answer_right":"Mejor no",
         "image": "adicto-al-porno.webp",
         "consequences_left":
             {
-                "mental_health":-10,
-                "hornyness":5,
+                "mental_health":-15,
+                "hornyness":-10,
                 "satisfaction":10
             }
         ,
         "consequences_right":
             {
-                "mental_health":10,
-                "hornyness":10,
-                "satisfaction":5
+                "mental_health":5,
+                "hornyness":-10,
+                "satisfaction":10
             }
         
     },

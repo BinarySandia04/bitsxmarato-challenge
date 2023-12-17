@@ -13,6 +13,14 @@ onMounted(() => {
   finalMessageRef.value = window.localStorage.getItem("finalMessage");
 })
 
+function Jugar() {
+  var name = document.getElementById('input-nom').value;
+
+  window.Player.name = name;
+
+  router.push("/game");
+}
+
 </script>
 
 <template>
@@ -20,7 +28,7 @@ onMounted(() => {
     <FormSlot>
       <h1 class="centered-title">Has perdut</h1>
       <div class="wrapper">
-        <p>{{ finalMessageRef }}</p>
+        <p class="centered">{{ finalMessageRef }}</p>
       <h1>Vols tornar a jugar?</h1>
       <div class="input-box">
         <input id="input-nom" type="text" placeholder="Introdueix el teu nom" required>
@@ -36,6 +44,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 
+.centered {
+    text-align: center;
+}
+
 .play-button {
   width: 100%;
   background-color: rgb(78, 153, 78);
@@ -46,12 +58,14 @@ onMounted(() => {
 }
 
 .centered-title {
+  width: 100%;
+  text-align: center;
+
   margin-top: 30px;
   justify-content: left;
   padding-bottom: 30px;
-  
-  width: 400px;
-  background: linear-gradient(90deg, var(--c-gradient-col-1) 0%, var(--c-gradient-col-2) 21%, var(--c-gradient-col-3) 50%, var(--c-gradient-col-2) 76%, var(--c-gradient-col-1) 100%);
+
+  background: linear-gradient(90deg, var(--c-gradient-col-red-1) 0%, var(--c-gradient-col-red-2) 21%, var(--c-gradient-col-red-3) 50%, var(--c-gradient-col-red-2) 76%, var(--c-gradient-col-red-1) 100%);
 
   animation: gradient 30s linear infinite;
 
