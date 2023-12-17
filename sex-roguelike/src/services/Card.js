@@ -6,6 +6,7 @@ class Card {
         this.answer_right = card.answer_right;
         this.consequences_left = card.consequences_left;
         this.consequences_right = card.consequences_right;
+        this.image = card.image;
     }
 
     getConsequenceAnswer(i) {

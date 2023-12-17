@@ -7,18 +7,22 @@ import Card from '@/services/Card.js'
 
 import cardsData from '@/services/Data/Cards.json'
 
-console.log(cardsData);
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
 
 var cardLength = undefined;
 var cardDirection = undefined;
 
 var currentCardImage = "latest";
 
+var nextImage = undefined;
+
 var currentCard = new Card(cardsData[0]);
 
-var player = window.Player;
+var previousCard = new Card(cardsData[0]);
 
-console.log("Negro de mierdaaa");
+var player = window.Player;
 
 const question_text = ref("");
 
@@ -28,19 +32,33 @@ const answer_right_text = ref("");
 const display_answer_left_text = ref("");
 const display_answer_right_text = ref("");
 
+const money_quantity = ref("");
+
 onMounted(() => {
   ChangeViewStats();
   PickRandomCard();
 
   display_answer_left_text.value = currentCard.answer_left;
   display_answer_right_text.value = currentCard.answer_right;
+
+  money_quantity.value = player.money;
 })
 
 function PickRandomCard() {
-  var cardPosition = parseInt(Math.random() * (cardsData.length-1));
-  console.log(cardPosition);
-  console.log(cardsData[cardPosition]);
-  currentCard = new Card(cardsData[cardPosition]);
+  var image = document.getElementById("card-image");
+
+  previousCard = currentCard;
+
+  var same = true;
+  while (same) {
+    var cardPosition = parseInt(Math.random() * (cardsData.length-1));
+    currentCard = new Card(cardsData[cardPosition]);
+    if (previousCard.question != currentCard.question) same = false;
+  }
+
+  if(nextImage === undefined) image.src = "images/" + currentCard.image;
+  nextImage = currentCard.image;
+  
   question_text.value = currentCard.question;
   answer_left_text.value = currentCard.answer_left;
   answer_right_text.value = currentCard.answer_right;
@@ -86,8 +104,6 @@ function CardHover(e) {
   } else {
     answerLeft.classList.add("shown");
   }
-
-  console.log("dir: " + cardDirection)
 };
 
 function CardLeave(e) {
@@ -96,26 +112,33 @@ function CardLeave(e) {
   var answerRight = document.getElementById("answer-right");
   
   cardDirection = undefined;
-  console.log("dir: " + cardDirection);
 
 
   card.classList.remove("card-right");
   card.classList.remove("card-left");
-    answerLeft.classList.remove("shown");
-    answerRight.classList.remove("shown");
+  answerLeft.classList.remove("shown");
+  answerRight.classList.remove("shown");
 }
 
 function CardClick(event){
+  var image = document.getElementById("card-image");
   var card = document.getElementById("card");
   var answerLeft  = document.getElementById("answer-left");
   var answerRight = document.getElementById("answer-right");
   
-  console.log("Las consequencias:");
-  console.log(currentCard.consequences_left);
+  // A
+  if (player.health == 100 || player.health == 0 || player.mental_health == 100 || player.mental_health == 0 || player.hornyness == 100 || player.hornyness == 0 || player.satisfaction == 100 || player.satisfaction == 0) {
+    // router.push('/end');
+  }
+
   if (cardDirection != undefined) {
+    player.money+=3;
     card.style.transitionDuration = "0.2s";
     if (cardDirection == "left") {
       player.AddStats(currentCard.consequences_left);
+
+      money_quantity.value = player.money;
+
       card.style.transform = "translateX(-30vw)";
       card.style.opacity = 0;
 
@@ -124,6 +147,7 @@ function CardClick(event){
 
       setTimeout(() => {
         card.style.transform = "translateY(-10vw)";
+        image.src = "images/" + currentCard.image;
         setTimeout(() => {
           card.style.opacity = 1;
           card.style.transform = "";
@@ -139,6 +163,8 @@ function CardClick(event){
     else {
       player.AddStats(currentCard.consequences_right);
 
+      money_quantity.value = player.money;
+
       card.style.transform = "translateX(30vw)";
       card.style.opacity = 0;
 
@@ -147,6 +173,7 @@ function CardClick(event){
 
       setTimeout(() => {
         card.style.transform = "translateY(-10vw)";
+        image.src = "images/" + currentCard.image;
         setTimeout(() => {
           card.style.opacity = 1;
           card.style.transform = "";
@@ -167,8 +194,6 @@ function CardClick(event){
 };
 
 function ChangeViewStats() {
-  console.log(player);
-  console.log("NEGRO: " + player.health);
   UpdateIconStatus("health", player.health/100);
   UpdateIconStatus("mentalhealth", player.mental_health/100);
   UpdateIconStatus("hornyness", player.hornyness/100);
@@ -249,9 +274,25 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
     <div class="card-container">
       <div class="card" id="card" v-on:mousemove="CardHover" v-on:click.prevent="CardClick" v-on:mouseleave="CardLeave">
         <div class="card-image-container">
-          <img class="card-image" :src="`../images/${currentCardImage.toLowerCase()}.png`">
-
+          <img class="card-image" id="card-image">
         </div>
+      </div>
+    </div>
+
+    <div class="space"></div>
+
+    <div class="footer-info">
+      <div class="footer-container player-info">
+        <div class="player-name"><b>{{ player.name }}</b><br>Diners: {{ money_quantity }}€</div>
+      </div>
+      <div class="footer-container buffs-info">
+        Condicions:
+        <ul id="condition-list">
+          <li>Negro</li>
+          <li>Negro</li>
+          <li>Negro</li>
+          <li>Negro</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -264,6 +305,32 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
 @font-face {
   font-family: RPGAwesome;
   src: url('@/assets/fonts/rpgawesome-webfont.woff');
+}
+
+.footer-container {
+  flex-grow: 1;
+
+  &.buffs-info {
+    font-size: 2vh;
+  }
+}
+
+.player-name {
+  font-size: 3vh;
+  text-align: center;
+  vertical-align: center;
+  margin-top: 5vh;
+}
+
+.footer-info {
+  width: 100%;
+  height: 20vh;
+
+  display: flex;
+}
+
+.space {
+  height: 45vh;
 }
 
 .answer {
@@ -316,7 +383,7 @@ function colorGradient(fadeFraction, rgbColor1, rgbColor2, rgbColor3) {
 }
 
 .card {
-  height: 60vh;
+  height: 50vh;
   width: calc(60vh / 1.618);
 
   background-color: var(--color-background-softest);

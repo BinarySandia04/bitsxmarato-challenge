@@ -17,8 +17,6 @@ function Jugar() {
   router.push("/game");
 }
 
-
-
 </script>
 
 <template>
@@ -27,7 +25,17 @@ function Jugar() {
       <h1 class="centered-title">Sex roguelike</h1>
       
       <div class="wrapper">
-      <h1>Vols jugar (solo acepto niños)?</h1>
+      <h1>Vols jugar?</h1>
+      <h2>Instruccions:</h2>
+      <p>Cada targeta planteja una questió diferent relacionada amb la sexualitat que passa al llarg d'una vida. El teu objectiu es procurar sobreviure el màxim de temps possible.</p>
+      <p>Ves amb compte! Ja que tindràs cuatre atributs diferents:</p>
+      <ul>
+        <li>Salut</li>
+        <li>Salut mental</li>
+        <li>Satisfacció</li>
+        <li>Calentura</li>
+      </ul>
+      Has d'intentar que cap d'ells arribi al màxim o al mínim (excepte el de salut). Bona sort!
       <div class="input-box">
         <input id="input-nom" type="text" placeholder="Introdueix el teu nom" required>
         <i class='bx bxs-user'></i>
@@ -44,7 +52,11 @@ function Jugar() {
 
 .play-button {
   width: 100%;
-  background-color: rgb(32, 136, 32);
+  background-color: rgb(78, 153, 78);
+}
+
+.play-button:hover {
+  background-color: rgb(99, 192, 99);
 }
 
 .centered-title {
@@ -71,12 +83,11 @@ function Jugar() {
 	}
 }
 .wrapper{
-    width: 420px;
+    width: 800px;
     vertical-align: center;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.418);
     backdrop-filter: blur(9px);
-    color: #e90000;
     border-radius: 12px;
     padding: 30px 40px;
   }
@@ -98,15 +109,13 @@ function Jugar() {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 2, 2, 0.164);
+    border: 2px solid rgba(151, 151, 151, 0.164);
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
     padding: 20px 45px 20px 20px;
   }
-  .input-box input::placeholder{
-    color: hsl(308, 100%, 50%);
-  }
+  
   .input-box i{
     position: absolute;
     right: 20px;

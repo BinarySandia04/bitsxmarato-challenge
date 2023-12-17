@@ -3,62 +3,56 @@
         "question":"Quien es mas negro?",
         "answer_left":"El Pol",
         "answer_right":"El negro ese que me esta mirando mal (bien)",
-        "consequences_left":
-            {
-                "health":-100,
-                "mental_health":-100,
-                "hornyness":-100,
-                "satisfaction":-100
-            }
+        "image": "latest.png",
+        "consequences_left": {
+            "health":-100,
+            "mental_health":-100,
+            "hornyness":-100,
+            "satisfaction":-100
+        }
         ,
-        "consequences_right":
-            {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
-            }
+        "consequences_right": {
+            "health":-100,
+            "mental_health":-100,
+            "hornyness":-100,
+            "satisfaction":-100
+        }
         
     },
     {
-        "question":"Tu pareja de dice de hacerlo a pelo",
+        "question":"Tu pareja de dice de hacerlo sin condón",
         "answer_left":"Hacerlo",
         "answer_right":"Mejor no, puede ser peligroso",
+        "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "health":-15,
+                "hornyness":-20,
+                "satisfaction":20
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
                 "hornyness":10,
-                "satisfaction":10
+                "satisfaction":-5
             }
         
     },
+
     {
         "question":"Tienes la opcion de ir al psicologo para mantener tu salud mental estable, pero tiene un coste economico",
-        "answer_left":"Aceptar",
-        "answer_right":"Rechazar",
+        "answer_left":"De acuerdo iré al psicólogo",
+        "answer_right":"No tengo tanto dinero",
+        "image": "latest.png",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "mental_health":30,
+                "cost":30
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
-                "satisfaction":10
+                "mental_health":-15
             }
         
     },
@@ -66,32 +60,33 @@
         "question":"Te apetece satisfacerte, pero no sabes si ver porno o no",
         "answer_left":"Hacerlo",
         "answer_right":"Nah",
+        "image": "adicto-al-porno.webp",
         "consequences_left":
             {
-                "health":50,
-                "mental_health":-30,
-                "hornyness":10,
+                "mental_health":-10,
+                "hornyness":5,
                 "satisfaction":10
             }
         ,
         "consequences_right":
             {
-                "health":50,
-                "mental_health":-30,
+                "mental_health":10,
                 "hornyness":10,
-                "satisfaction":10
+                "satisfaction":5
             }
         
     },
+
     {
         "question":"Estas con tu pareja y quiere realizar practicas que no te atraen pero suelen ser tipicas en la pronografia",
         "answer_left":"Aceptar",
         "answer_right":"Hablar sobre el tema con la persona",
+        "image": "latest.png",
         "consequences_left":
             {
                 "health":50,
                 "mental_health":-30,
-                "hornyness":10,
+                "hornyness":-10,
                 "satisfaction":10
             }
         ,
@@ -104,10 +99,12 @@
             }
         
     },
+
     {
         "question":"Experimentar cosas nuevas: cosa que puedas probar ns",
         "answer_left":"Probar",
         "answer_right":"Mejor no",
+        "image": "latest.png",
         "consequences_left":
             {
                 "health":50,
@@ -129,6 +126,7 @@
         "question":"Quieres salir de fiesta esta noche?",
         "answer_left":"Aceptar",
         "answer_right":"Quedarse en casa",
+        "image": "latest.png",
         "consequences_left":
             {
                 "health":50,
@@ -150,6 +148,7 @@
         "question":"Medicarte para el SIDA",
         "answer_left":"Aceptar",
         "answer_right":"Soy pobre",
+        "image": "latest.png",
         "consequences_left":
             {
                 "health":50,
@@ -168,16 +167,18 @@
         
     },
     {
-        "question":"Tener Sexo",
+        "question":"Te despiertas sin ganas de follar",
         "answer_left":"Aceptar",
-        "answer_right":"Rechazar",
+        "answer_right":"Aceptar",
+        "image": "latest.png",
         "consequences_left":
             {
                 "health":50,
                 "mental_health":-30,
                 "hornyness":10,
                 "satisfaction":10,
-                "sexo":1
+                "sexo":0,
+                "sin_ganas":1
             }
         ,
         "consequences_right":
@@ -186,6 +187,54 @@
                 "mental_health":-30,
                 "hornyness":10,
                 "satisfaction":10
+            }
+        
+    },
+    {
+        "question":"Hoy te has despertado caliente, todas las acciones sexuales te haran mas feliz",
+        "answer_left":"ok",
+        "answer_right":"ok",
+        "image": "latest.png",
+        "consequences_left":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "health":50,
+                "mental_health":-30,
+                "hornyness":10,
+                "satisfaction":10
+            }
+        
+    },
+
+    {
+        "question":"Vas a tener sexo con tu pareja, quieres usar condon?",
+        "answer_left":"Sí",
+        "answer_right":"No",
+        "image": "latest.png",
+        "consequences_left":
+            {
+                "sexo":1,
+                "health":4,
+                "mental_health":0,
+                "hornyness":-15,
+                "satisfaction":10
+            }
+        ,
+        "consequences_right":
+            {
+                "sexo":1,
+                "health":4,
+                "mental_health":-5,
+                "hornyness":-23,
+                "satisfaction":17,
+                "sexoaPelo":1
             }
         
     }
